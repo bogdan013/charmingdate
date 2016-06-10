@@ -4,10 +4,11 @@
     </div>
     <div class="col-md-8">
 
+        <div ng-repeat="ded in $ctrl.jsonList | searchId:$ctrl.searchId">
 
-        {{$ctrl.data | json}}
+            {{ded}}
 
-
+        </div>
 
 
     </div>
