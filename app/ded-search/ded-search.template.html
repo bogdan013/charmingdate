@@ -5,15 +5,19 @@
             <input type="text" class="form-control" placeholder="Enter ID" aria-describedby="basic-addon1" ng-model="$ctrl.searchId">
         </div>
 
+        <br>
+        <ul class="list-group" ng-show="$ctrl.jsonList.length">
 
-        <div class="well wellStats">Found profiles: {{$ctrl.jsonList.length}}</div>
+            <li class="list-group-item" ng-show="$ctrl.searchId">ID filter: {{$ctrl.searchId}}</li>
+
+            <li class="list-group-item">Profiles in DB: {{$ctrl.jsonList.length}}</li>
+        </ul>
+
 
     </div>
     <div class="col-md-8">
-
-        <a href="#" class="avatarLink" ng-repeat="ded in $ctrl.jsonList | searchId:$ctrl.searchId | limitTo:60">
+        <a href="#!/profile/{{ded.manId}}" class="avatarLink" ng-repeat="ded in $ctrl.jsonList | searchId:$ctrl.searchId | limitTo:100">
             <img class="avatar" onerror="this.src='http://www.charmdate.com/lady/images/en/nophoto.gif'" ng-src="{{'http://charmdate.com' + ded.imgSrc}}" alt="{{ded.manId}}">
         </a>
-
     </div>
 </div>

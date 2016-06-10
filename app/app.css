@@ -10,6 +10,11 @@ img.avatar {
   padding: 4px;
 }
 
+img._avatar {
+  width: 120px;
+  padding: 6px;
+}
+
 .avatarLink {
   display: inline!important;
 }

@@ -16,15 +16,18 @@
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-  <script src="app.js"></script>
+  <script src="app.module.js"></script>
+  <script src="app.config.js"></script>
   <script src="ded-search/ded-search.module.js"></script>
   <script src="ded-search/ded-search.component.js"></script>
+  <script src="ded-profile/ded-profile.module.js"></script>
+  <script src="ded-profile/ded-profile.component.js"></script>
 </head>
 <body>
 
 
-<ded-search></ded-search>
 
+<div ng-view></div>
 
 </body>
 </html>
