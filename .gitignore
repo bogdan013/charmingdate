@@ -6,3 +6,5 @@ tmp
 .DS_Store
 .idea
 app/serv/config.php
+app/serv/output.json
+app/serv/lastget.dat
