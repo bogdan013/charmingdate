@@ -1,15 +1,19 @@
 <div class="row">
     <div class="col-md-4">
-        <input type="text" class="form-control" placeholder="ID" ng-model="$ctrl.searchId">
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">ID</span>
+            <input type="text" class="form-control" placeholder="Enter ID" aria-describedby="basic-addon1" ng-model="$ctrl.searchId">
+        </div>
+
+
+        <div class="well wellStats">Found profiles: {{$ctrl.jsonList.length}}</div>
+
     </div>
     <div class="col-md-8">
 
-        <div ng-repeat="ded in $ctrl.jsonList | searchId:$ctrl.searchId">
-
-            {{ded}}
-
-        </div>
-
+        <a href="#" class="avatarLink" ng-repeat="ded in $ctrl.jsonList | searchId:$ctrl.searchId | limitTo:60">
+            <img class="avatar" onerror="this.src='http://www.charmdate.com/lady/images/en/nophoto.gif'" ng-src="{{'http://charmdate.com' + ded.imgSrc}}" alt="{{ded.manId}}">
+        </a>
 
     </div>
 </div>
