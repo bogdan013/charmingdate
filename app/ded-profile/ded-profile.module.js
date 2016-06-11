@@ -1,1 +1,1 @@
-angular.module('dedProfile', []);
+angular.module('dedProfile', ['dedSearch']);
