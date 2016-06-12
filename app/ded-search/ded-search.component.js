@@ -15,13 +15,21 @@ angular.module('dedSearch').component('dedSearch', {
 
 
 
-dedSearchController.$inject = ['$http'];
-function dedSearchController($http) {
+
+
+
+
+
+dedSearchController.$inject = ['getJSON', '$scope'];
+function dedSearchController(getJSON, $scope) {
     var self = this;
-    self.searchId = '';
+    self.searchId = 'dd';
     self.jsonList = [];
 
-    $http.get('serv/data.php').then(function(response){
+    alert($scope.searchId);
+
+
+    getJSON.then(function(response){
         self.jsonList = response.data;
     });
 }

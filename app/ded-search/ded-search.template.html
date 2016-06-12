@@ -1,23 +1,53 @@
+
 <div class="row">
     <div class="col-md-4">
         <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">ID</span>
-            <input type="text" class="form-control" placeholder="Enter ID" aria-describedby="basic-addon1" ng-model="$ctrl.searchId">
+            <input type="text" class="form-control" placeholder="Enter ID" aria-describedby="basic-addon1" ng-model="searchId">
         </div>
 
         <br>
-        <ul class="list-group" ng-show="$ctrl.jsonList.length">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search by name" ng-model="searchName">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search type <span class="caret"></span></button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="javascript://" ng-click="searchCase=2">case sensitive</a></li>
+                    <li><a href="javascript://" ng-click="searchCase=1">not case sensitive</a></li>
+                </ul>
+            </div>
+        </div>
 
-            <li class="list-group-item" ng-show="$ctrl.searchId">ID filter: {{$ctrl.searchId}}</li>
+        <br>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default" data-ng-click="applyFilters()">Apply filters</button>
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="javascript://" ng-click="showLimit=10">limit to 10 rows</a></li>
+                <li><a href="javascript://" ng-click="showLimit=30">limit to 30 rows</a></li>
+                <li><a href="javascript://" ng-click="showLimit=50">limit to 50 rows</a></li>
+            </ul>
+        </div>
 
-            <li class="list-group-item">Profiles in DB: {{$ctrl.jsonList.length}}</li>
-        </ul>
 
+        <br><br>
+        <div class="well well-sm">
+            <ul class="list-group" ng-show="jsonList.length">
+                <li class="list-group-item">Filtered profiles length: {{jsonListFiltered.length}}</li>
+                <li class="list-group-item">Profiles in DB: {{jsonList.length}}</li>
+            </ul>
+        </div>
 
     </div>
     <div class="col-md-8">
-        <a href="#!/profile/{{ded.manId}}" class="avatarLink" ng-repeat="ded in $ctrl.jsonList | searchId:$ctrl.searchId | limitTo:100">
-            <img class="avatar" onerror="this.src='http://www.charmdate.com/lady/images/en/nophoto.gif'" ng-src="{{'http://charmdate.com' + ded.imgSrc}}" alt="{{ded.manId}}">
-        </a>
+
+
+        <div class="list-group">
+            <a href="#!/profile/{{ded.manId}}" class="list-group-item" ng-repeat="ded in jsonListFiltered | limitTo:showLimit">{{$index+1}}) {{ded.manId}} &mdash; {{ded.fullName}}</a>
+        </div>
+
     </div>
 </div>

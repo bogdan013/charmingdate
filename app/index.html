@@ -19,20 +19,24 @@
   <script src="app.module.js"></script>
   <script src="app.config.js"></script>
 
-  <script src="ded-search/ded-search.module.js"></script>
-  <script src="ded-search/ded-search.factory.js"></script>
-  <script src="ded-search/ded-search.component.js"></script>
+  <script src="ded-search/ded-search.js"></script>
+  <script src="ded-search/fetchServ.js"></script>
+  <script src="ded-search/directive.js"></script>
+  <script src="ded-search/searchFilter.js"></script>
+  <script src="ded-search/controller.js"></script>
 
-
-
+<!--
   <script src="ded-profile/ded-profile.module.js"></script>
-  <script src="ded-profile/ded-profile.component.js"></script>
+  <script src="ded-profile/ded-profile.component.js"></script> -->
 </head>
 <body>
 
 
+<div ng-controller="searchForm">
+  <div search-form-temp></div>
+</div>
 
-<div ng-view></div>
+
 
 </body>
 </html>

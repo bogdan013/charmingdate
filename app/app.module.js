@@ -1,7 +1,6 @@
 'use strict';
 
 angular.module('charmApp', [
-  'ngRoute',
-  'dedSearch',
-  'dedProfile'
+  //'ngRoute',
+  'dedSearch'
 ]);
